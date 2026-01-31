@@ -7,6 +7,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     [Header("Identity")]
     public int pieceID;
+    public Image image;
 
     [Header("Settings")]
     public bool returnToStartOnFail = true;
@@ -23,6 +24,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        image = GetComponent<Image>();
         canvasGroup = GetComponent<CanvasGroup>();
         parentCanvas = GetComponentInParent<Canvas>();
     }

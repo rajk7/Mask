@@ -60,6 +60,7 @@
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\2022.3.55f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LevelSetup.cs" />
     <Compile Include="Assets\Scripts\PuzzleManager.cs" />
     <Compile Include="Assets\Scripts\SnapArea.cs" />
     <Compile Include="Assets\Scripts\PuzzlePiece.cs" />
