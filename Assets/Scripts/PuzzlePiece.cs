@@ -15,8 +15,9 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Canvas parentCanvas;
-    
+
     private Vector3 startPosition;
+    private Vector2 startSize;
     private Transform startParent;
 
     public bool IsLocked { get; private set; } = false;
@@ -32,8 +33,9 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private void Start()
     {
         startPosition = rectTransform.position;
+        startSize = rectTransform.sizeDelta;
         startParent = transform.parent;
-        
+
         if (PuzzleManager.Instance != null)
             PuzzleManager.Instance.RegisterPiece(this);
     }
@@ -47,7 +49,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
-        
+
         // Ensure it draws on top
         if (parentCanvas != null)
             transform.SetParent(parentCanvas.transform);
@@ -96,9 +98,9 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             if (returnToStartOnFail)
             {
-                 // Return to original parent to keep hierarchy clean, or stay in world space
-                 transform.SetParent(startParent);
-                 rectTransform.position = startPosition;
+                // Return to original parent to keep hierarchy clean, or stay in world space
+                transform.SetParent(startParent);
+                rectTransform.position = startPosition;
             }
         }
     }
@@ -110,7 +112,18 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         // Snap to center (0,0,0) relative to parent
         rectTransform.anchoredPosition = Vector2.zero;
-        
+
+        // Resize to match snap area or default
+        RectTransform snapRect = snap.GetComponent<RectTransform>();
+        if (snapRect != null)
+        {
+            rectTransform.sizeDelta = snapRect.sizeDelta;
+        }
+        else
+        {
+            rectTransform.sizeDelta = new Vector2(840, 1080);
+        }
+
         // Change anchors to middle-center
         rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
         rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
@@ -118,7 +131,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         IsLocked = true;
         canvasGroup.blocksRaycasts = false; // Disable partial interaction
-        
+
         PuzzleManager.Instance.CheckWinCondition();
     }
 
@@ -135,6 +148,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void ResetToStart()
     {
         transform.position = startPosition;
+        rectTransform.sizeDelta = startSize;
         transform.SetParent(startParent);
         IsLocked = false;
         canvasGroup.blocksRaycasts = true;

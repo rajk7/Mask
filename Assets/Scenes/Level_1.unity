@@ -1026,16 +1026,16 @@ MonoBehaviour:
   puzzlePiecePF: {fileID: 7444515952046425721, guid: 9ebaaf81d1d8a0b43ac6253a0fe94773, type: 3}
   puzzleContent: {fileID: 898317037}
   sprite:
-  - {fileID: 21300000, guid: 061f009300c413f4999cc136a77adaee, type: 3}
-  - {fileID: 21300000, guid: bbadec1bba1dbba49b1182b40017614b, type: 3}
-  - {fileID: 21300000, guid: 9dd0716f079f6984b89ffc7671581391, type: 3}
-  - {fileID: 21300000, guid: f737398091b490f448798ed3e0aef86d, type: 3}
-  - {fileID: 21300000, guid: e794903014f18f34cad500bbec694507, type: 3}
-  - {fileID: 21300000, guid: 3de06ac012d715148b0dd86479deb4b0, type: 3}
-  - {fileID: 21300000, guid: 47baaa3e435cf364b9448dadcfea06f1, type: 3}
-  - {fileID: 21300000, guid: 5cf195d8da2be9f47b33ac70cd619644, type: 3}
-  - {fileID: 21300000, guid: 3770084216e5e6543ad073a4894df383, type: 3}
-  - {fileID: 21300000, guid: 81bd685c0df33f0449441545f72b5f79, type: 3}
+  - {fileID: 21300000, guid: ae74f283f27177345a219e9425061714, type: 3}
+  - {fileID: 21300000, guid: a3143db5163d7814e904fa01bb363be5, type: 3}
+  - {fileID: 21300000, guid: 58e420047c8de144ab78e036440c434a, type: 3}
+  - {fileID: 21300000, guid: 16c96412363f5f64c8f8611ee0d26659, type: 3}
+  - {fileID: 21300000, guid: 883c60953a174184d88417ee13f9ea14, type: 3}
+  - {fileID: 21300000, guid: a10a12db9b6ea8047bcd3cd76c22ceba, type: 3}
+  - {fileID: 21300000, guid: ee67899814ec93d47bf0066d6b43ed8d, type: 3}
+  - {fileID: 21300000, guid: e10abd25a0c57b6428465485d2687344, type: 3}
+  - {fileID: 21300000, guid: b5c155eeb24fd8e4383a26920752c9cf, type: 3}
+  - {fileID: 21300000, guid: 9c605f8731a2e2b40820cb7316f541e5, type: 3}
 --- !u!4 &485677318
 Transform:
   m_ObjectHideFlags: 0
