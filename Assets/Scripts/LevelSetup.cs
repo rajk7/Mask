@@ -22,7 +22,8 @@ public class LevelSetup : MonoBehaviour
             puzzlePieceImage.pieceID = int.Parse(sprite[i].name);
             puzzlePieceImage.image.sprite = sprite[i];
 
-            PuzzleManager.Instance.allPieces[i] = puzzlePieceImage;
+            PuzzleManager.Instance.allPieces.Add(puzzlePieceImage);
+            //PuzzleManager.Instance.allPieces[i] = puzzlePieceImage;
         }
 
     }

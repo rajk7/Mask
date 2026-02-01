@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LevelSetup.cs" />
     <Compile Include="Assets\Scripts\PuzzleManager.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\SnapArea.cs" />
     <Compile Include="Assets\Scripts\PuzzlePiece.cs" />
   </ItemGroup>

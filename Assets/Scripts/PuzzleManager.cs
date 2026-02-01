@@ -17,6 +17,14 @@ public class PuzzleManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     public void RegisterPiece(PuzzlePiece piece)
     {
         if (!allPieces.Contains(piece))
