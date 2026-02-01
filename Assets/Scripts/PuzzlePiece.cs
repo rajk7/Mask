@@ -132,7 +132,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         IsLocked = true;
         canvasGroup.blocksRaycasts = false; // Disable partial interaction
 
-        PuzzleManager.Instance.CheckWinCondition();
+      
     }
 
     // Called by Undo System

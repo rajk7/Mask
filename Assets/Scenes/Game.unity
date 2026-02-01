@@ -386,6 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474154606}
   - component: {fileID: 1474154605}
+  - component: {fileID: 1474154607}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -407,10 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPrefabs:
   - {fileID: 8764380256689857108, guid: d569dece1cd28c042b0a50d7eb7f59e9, type: 3}
-  - {fileID: 8764380256689857108, guid: 48e51a365909b174a922956dd0934142, type: 3}
-  - {fileID: 8764380256689857108, guid: 6a2ea3cd5cad3b1458d5eb3d9a3c80b5, type: 3}
-  - {fileID: 8764380256689857108, guid: b7658a22c5cb63445bce59f5b8227994, type: 3}
-  - {fileID: 8764380256689857108, guid: 58b84fb212a019d4f87861450076cbc2, type: 3}
+  - {fileID: 8764380256689857108, guid: 51f737f78dc09e347bc114994ea4d4dc, type: 3}
   currentLevelIndex: 0
 --- !u!4 &1474154606
 Transform:
@@ -427,6 +425,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474154607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474154604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa9ce9160c64724ebb9b7161eddd632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureWidth: 840
+  captureHeight: 1080
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

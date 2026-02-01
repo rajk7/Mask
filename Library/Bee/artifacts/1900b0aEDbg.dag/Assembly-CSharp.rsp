@@ -361,6 +361,7 @@
 "Assets/Scripts/LevelSetup.cs"
 "Assets/Scripts/PuzzleManager.cs"
 "Assets/Scripts/PuzzlePiece.cs"
+"Assets/Scripts/ScreenPixelComparer.cs"
 "Assets/Scripts/SnapArea.cs"
 -langversion:9.0
 /deterministic

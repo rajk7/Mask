@@ -1,11 +1,17 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSetup : MonoBehaviour
 {
     public PuzzlePiece puzzlePiecePF;
     public Transform puzzleContent;
+    //public Sprite targetSprite;
+    //public Image targetImg;
     public List<Sprite> sprite;
+
+  
 
     private void Start()
     {
@@ -15,6 +21,7 @@ public class LevelSetup : MonoBehaviour
     [ContextMenu("SetSprite")]
     public void SetSprite()
     {
+        //targetImg.sprite = targetSprite;
         for (int i = 0; i < sprite.Count; i++)
         {
             PuzzlePiece puzzlePieceImage = Instantiate(puzzlePiecePF, puzzleContent);
@@ -27,6 +34,8 @@ public class LevelSetup : MonoBehaviour
         }
 
     }
+
+
 
 
 }
