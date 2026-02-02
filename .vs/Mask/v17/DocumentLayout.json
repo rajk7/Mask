@@ -3,15 +3,7 @@
   "WorkspaceRootPath": "D:\\Unity Project\\Mask\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|d:\\unity project\\mask\\assets\\scripts\\puzzlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\screenpixelcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\screenpixelcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\levelsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|d:\\unity project\\mask\\assets\\scripts\\levelsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,12 +15,16 @@
       "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\snaparea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\snaparea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\puzzlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity Project\\Mask\\Assets\\Scripts\\NewBehaviourScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NewBehaviourScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\screenpixelcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\screenpixelcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|D:\\Unity Project\\Mask\\assets\\scripts\\snaparea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23867015-A021-1F64-1930-BC0C135512F8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\snaparea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,57 +42,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "LevelSetup.cs",
               "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\LevelSetup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LevelSetup.cs",
               "ToolTip": "D:\\Unity Project\\Mask\\Assets\\Scripts\\LevelSetup.cs",
               "RelativeToolTip": "Assets\\Scripts\\LevelSetup.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAgAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAuwBgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-31T12:33:17.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ScreenPixelComparer.cs",
               "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\ScreenPixelComparer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ScreenPixelComparer.cs",
               "ToolTip": "D:\\Unity Project\\Mask\\Assets\\Scripts\\ScreenPixelComparer.cs",
               "RelativeToolTip": "Assets\\Scripts\\ScreenPixelComparer.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAIA9wCAAAABAAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAMwCYAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-01T07:25:22.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-01T07:25:22.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NewBehaviourScript.cs",
-              "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\NewBehaviourScript.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewBehaviourScript.cs",
-              "ToolTip": "D:\\Unity Project\\Mask\\Assets\\Scripts\\NewBehaviourScript.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewBehaviourScript.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAcwEcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-01T07:21:52.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LevelManager.cs",
               "ToolTip": "D:\\Unity Project\\Mask\\Assets\\Scripts\\LevelManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\LevelManager.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAIAwwEMAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T05:30:51.127Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PuzzlePiece.cs",
               "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\PuzzlePiece.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PuzzlePiece.cs",
@@ -120,16 +103,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PuzzleManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\Mask\\Assets\\Scripts\\PuzzleManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PuzzleManager.cs",
               "ToolTip": "D:\\Unity Project\\Mask\\Assets\\Scripts\\PuzzleManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\PuzzleManager.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAD4v4UAAAALAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwLkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T08:45:47.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-31T08:45:47.629Z"
             }
           ]
         }

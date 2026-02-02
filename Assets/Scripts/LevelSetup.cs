@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class LevelSetup : MonoBehaviour
 {
     public PuzzlePiece puzzlePiecePF;
@@ -21,6 +21,8 @@ public class LevelSetup : MonoBehaviour
     [ContextMenu("SetSprite")]
     public void SetSprite()
     {
+        Shuffle(sprite);
+
         //targetImg.sprite = targetSprite;
         for (int i = 0; i < sprite.Count; i++)
         {
@@ -36,6 +38,15 @@ public class LevelSetup : MonoBehaviour
     }
 
 
+
+    public  void Shuffle<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
 
 
 }

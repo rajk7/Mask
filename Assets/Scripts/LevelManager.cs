@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [Header("Current State")]
     public int currentLevelIndex = 0;
     private GameObject currentLevelObject;
+    [SerializeField] private GameObject menupage;
 
     private void Awake()
     {
@@ -29,14 +30,12 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        if (levelPrefabs.Count > 0)
-        {
-            LoadLevel(currentLevelIndex);
-        }
+       
     }
 
     public void LoadLevel(int index)
     {
+        menupage.SetActive(false);
         if (index < 0 || index >= levelPrefabs.Count)
         {
             Debug.LogError("Level index out of range!");
@@ -65,7 +64,8 @@ public class LevelManager : MonoBehaviour
         {
             // The Destroy call above marks it. Wait for it to actually be gone?
             // Actually, Destroy() happens at end of frame.
-            yield return new WaitForEndOfFrame();
+            //yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         currentLevelIndex = index;
@@ -83,11 +83,17 @@ public class LevelManager : MonoBehaviour
         int nextIndex = currentLevelIndex + 1;
         if (nextIndex < levelPrefabs.Count)
         {
+            Debug.Log("nextIndex"+ nextIndex);
             LoadLevel(nextIndex);
         }
         else
         {
             Debug.Log("No more levels!");
+            menupage.SetActive(true);
+            if (currentLevelObject != null)
+            {
+                Destroy(currentLevelObject);
+            }
             // Optional: return to menu or loop, or just stay
         }
     }

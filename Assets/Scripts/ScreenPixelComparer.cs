@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ScreenPixelComparer : MonoBehaviour
@@ -11,68 +12,55 @@ public class ScreenPixelComparer : MonoBehaviour
     public int captureWidth = 1920;
     public int captureHeight = 1080;
 
-    private Texture2D screenA;
-    private Texture2D screenB;
+    public Texture2D screenA;
+    public Texture2D screenB;
     [ContextMenu("CaptureFirstScreen")]
-    public void CaptureFirstScreen()
+
+    public IEnumerator CaptureFirstScreen()
     {
-        screenA = CaptureScreen(captureWidth, captureHeight);
-        Debug.Log("First screen captured!");
-    }
-    [ContextMenu("CaptureSecondScreen")]
-    public void CaptureSecondScreen()
-    {
-        screenB = CaptureScreen(captureWidth, captureHeight);
-        Debug.Log("Second screen captured!");
+        yield return new WaitForEndOfFrame();
+        screenA = ScreenCapture.CaptureScreenshotAsTexture();
+        Debug.Log("First captured");
     }
 
-    Texture2D CaptureScreen(int width, int height)
+    public IEnumerator CaptureSecondScreen()
     {
-        Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-
-        RenderTexture rt = new RenderTexture(width, height, 24);
-        ScreenCapture.CaptureScreenshotIntoRenderTexture(rt);
-
-        RenderTexture.active = rt;
-        tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
-        tex.Apply();
-
-        RenderTexture.active = null;
-        Destroy(rt);
-
-        return tex;
+        yield return new WaitForEndOfFrame();
+        screenB = ScreenCapture.CaptureScreenshotAsTexture();
+        Debug.Log("Second captured");
     }
-    [ContextMenu("CompareScreens")]
+
     public float CompareScreens()
     {
         if (screenA == null || screenB == null)
         {
-            Debug.LogError("Capture both screens first!");
+            Debug.LogError("Capture both first!");
             return 0f;
         }
 
-        Color[] pixelsA = screenA.GetPixels();
-        Color[] pixelsB = screenB.GetPixels();
-
-        int totalPixels = pixelsA.Length;
-        int matchingPixels = 0;
-
-        for (int i = 0; i < totalPixels; i++)
+        if (screenA.width != screenB.width ||
+            screenA.height != screenB.height)
         {
-            if (ColorApproximatelyEqual(pixelsA[i], pixelsB[i]))
-                matchingPixels++;
+            Debug.LogError("Resolution mismatch!");
+            return 0f;
         }
 
-        float similarity = (float)matchingPixels / totalPixels;
-        Debug.Log($"Image Similarity: {similarity * 100f}%");
+        byte[] a = screenA.GetRawTextureData();
+        byte[] b = screenB.GetRawTextureData();
 
-        return similarity;
+        int total = a.Length;
+        int match = 0;
+
+        for (int i = 0; i < total; i++)
+        {
+            if (a[i] == b[i])
+                match++;
+        }
+
+        float similarity = (float)match / total;
+        Debug.Log($"RAW Similarity = {similarity * 100f}%");
+
+        return (similarity*100f);
     }
 
-    bool ColorApproximatelyEqual(Color a, Color b, float tolerance = 0.005f)
-    {
-        return Mathf.Abs(a.r - b.r) < tolerance &&
-               Mathf.Abs(a.g - b.g) < tolerance &&
-               Mathf.Abs(a.b - b.b) < tolerance;
-    }
 }

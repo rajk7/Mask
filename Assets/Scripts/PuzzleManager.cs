@@ -14,6 +14,14 @@ public class PuzzleManager : MonoBehaviour
     public Button submitBtn;
     public Button resetBtn;
 
+    public Button NextBtnPopup;
+    public Button resetBtnPopup;
+    public Button homeBtnPopup;
+
+    public GameObject NextBtnGo;
+    public GameObject resetBtnGo;
+    public GameObject homeBtnGo;
+
     public Image targetImg;
 
     public GameObject userImageGO;
@@ -23,7 +31,10 @@ public class PuzzleManager : MonoBehaviour
     private float similarity;
     public Sprite targetSprite;
     public Sprite bgSprite;
+    public Sprite withoutGb;
     public Image bgImg;
+
+    public float winpercentage;
 
     private void Awake()
     {
@@ -33,8 +44,18 @@ public class PuzzleManager : MonoBehaviour
         //bgImg.sprite = bgSprite;    
         submitBtn.onClick.AddListener(Submit);
         resetBtn.onClick.AddListener(ResetPuzzle);
-        realImage.sprite = targetSprite;
+       
+        resetBtnPopup.onClick.AddListener(ResetPuzzle);
+
+        NextBtnPopup.onClick.AddListener(NextLevel);
+        resetBtnPopup.onClick.AddListener(ResetBtn);
+        homeBtnPopup.onClick.AddListener(MenuBtn);
+        realImage.sprite = withoutGb;
         realImageGO.SetActive(false);
+
+        NextBtnGo.SetActive(false);
+        resetBtnGo.SetActive(false);
+        homeBtnGo.SetActive(false);
     }
 
     private void OnDestroy()
@@ -91,6 +112,7 @@ public class PuzzleManager : MonoBehaviour
         {
             if (similarity > 98)
             {
+                LevelManager.Instance.NextLevel();
                // winPanel.SetActive(true);
             }
             Debug.Log("Puzzle Completed!");
@@ -109,31 +131,76 @@ public class PuzzleManager : MonoBehaviour
         userImageGO.SetActive(true);
         realImageGO.SetActive(false);
 
-        ScreenPixelComparer.Instance.CaptureFirstScreen();
-        yield return new WaitForSeconds (1);
+        StartCoroutine( ScreenPixelComparer.Instance.CaptureFirstScreen());
+        yield return null;
         userImageGO.SetActive(false);
         realImageGO.SetActive(true);
 
-        ScreenPixelComparer.Instance.CaptureSecondScreen();
-        yield return new WaitForSeconds(1);
+        StartCoroutine( ScreenPixelComparer.Instance.CaptureSecondScreen());
+        yield return null;
         similarity = ScreenPixelComparer.Instance.CompareScreens();
         realImageGO.SetActive(false);
         userImageGO.SetActive(true);
 
-        if (similarity > 98)
+        if (similarity >= winpercentage)
         {
-            //LevelManager.Instance.NextLevel();
-            Debug.Log("Puzzle Completed!");
+
+            if (LevelManager.Instance.currentLevelIndex == 4)
+            {
+                NextpopupSetActive(false);
+                MenupopupSetActive(true);
+                //LevelManager.Instance.NextLevel();
+                Debug.Log("Puzzle Completed!");
+            }
+            else
+            {
+                NextpopupSetActive(true);
+                //LevelManager.Instance.NextLevel();
+                Debug.Log("Puzzle Completed!");
+            }
 
         }
         else
         {
             Debug.Log("Puzzle not Completed!");
-
+            ResetpopupSetActive(true);
+            //ResetPuzzle();
         }
 
 
     //PuzzleManager.Instance.CheckWinCondition();
+    }
+
+    private void NextLevel()
+    {
+        NextpopupSetActive(false);
+        LevelManager.Instance.NextLevel();
+    }
+
+    private void ResetBtn()
+    {
+        ResetpopupSetActive(false);
+
+    }
+    private void MenuBtn()
+    {
+        MenupopupSetActive(false);
+        LevelManager.Instance.NextLevel();
+
+    }
+
+
+    private void NextpopupSetActive(bool var)
+    {
+        NextBtnGo.SetActive(var);
+    }
+    private void ResetpopupSetActive(bool var)
+    {
+        resetBtnGo.SetActive(var);
+    }
+    private void MenupopupSetActive(bool var)
+    {
+        homeBtnGo.SetActive(var);
     }
 }
 
