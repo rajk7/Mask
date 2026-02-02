@@ -35,6 +35,8 @@ public class PuzzleManager : MonoBehaviour
     public Image bgImg;
 
     public float winpercentage;
+    private LevelSetup levelSetup;
+    private ContentSizeFitter contentSizeFitter;
 
     private void Awake()
     {
@@ -57,7 +59,12 @@ public class PuzzleManager : MonoBehaviour
         resetBtnGo.SetActive(false);
         homeBtnGo.SetActive(false);
     }
-
+    private void Start()
+    {
+        levelSetup = GetComponent<LevelSetup>();
+        contentSizeFitter = levelSetup.puzzleContent.GetComponent<ContentSizeFitter>();
+        
+    }
     private void OnDestroy()
     {
         if (Instance == this)
@@ -89,11 +96,14 @@ public class PuzzleManager : MonoBehaviour
 
     public void ResetPuzzle()
     {
+        contentSizeFitter.enabled = false;
         history.Clear();
         foreach (var piece in allPieces)
         {
             piece.ResetToStart();
         }
+        contentSizeFitter.enabled = true;
+
     }
 
     public void CheckWinCondition()

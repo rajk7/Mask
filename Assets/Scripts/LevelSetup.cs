@@ -13,7 +13,7 @@ public class LevelSetup : MonoBehaviour
 
   
 
-    private void Start()
+    private void Awake()
     {
         SetSprite();
     }

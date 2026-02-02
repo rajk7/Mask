@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class ScreenPixelComparer : MonoBehaviour
@@ -9,12 +9,9 @@ public class ScreenPixelComparer : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
     }
-    public int captureWidth = 1920;
-    public int captureHeight = 1080;
-
-    public Texture2D screenA;
-    public Texture2D screenB;
-    [ContextMenu("CaptureFirstScreen")]
+    
+    Texture2D screenA;
+    Texture2D screenB;
 
     public IEnumerator CaptureFirstScreen()
     {
@@ -38,8 +35,7 @@ public class ScreenPixelComparer : MonoBehaviour
             return 0f;
         }
 
-        if (screenA.width != screenB.width ||
-            screenA.height != screenB.height)
+        if (screenA.width != screenB.width || screenA.height != screenB.height)
         {
             Debug.LogError("Resolution mismatch!");
             return 0f;
@@ -60,7 +56,7 @@ public class ScreenPixelComparer : MonoBehaviour
         float similarity = (float)match / total;
         Debug.Log($"RAW Similarity = {similarity * 100f}%");
 
-        return (similarity*100f);
+        return (similarity * 100f);
     }
 
 }
