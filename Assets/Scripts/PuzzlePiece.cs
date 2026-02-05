@@ -105,7 +105,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
     }
 
-    public void SnapTo(SnapArea snap)
+    public void SnapTo1(SnapArea snap)
     {
         // Parenting to the target keeps things organized
         transform.SetParent(snap.transform);
@@ -134,6 +134,27 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
       
     }
+    public void SnapTo(SnapArea snap)
+    {
+        // Parent to the snap area
+        transform.SetParent(snap.transform);
+
+        RectTransform snapRect = snap.GetComponent<RectTransform>();
+
+        // Stretch to fill parent
+        rectTransform.anchorMin = Vector2.zero;   // (0,0)
+        rectTransform.anchorMax = Vector2.one;    // (1,1)
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+
+        // Required for stretch mode
+        rectTransform.anchoredPosition = Vector2.zero;
+        rectTransform.offsetMin = Vector2.zero;
+        rectTransform.offsetMax = Vector2.zero;
+
+        IsLocked = true;
+        canvasGroup.blocksRaycasts = false;
+    }
+
 
     // Called by Undo System
     public void ForceMove(Vector3 pos, Transform parent, bool lockedState)

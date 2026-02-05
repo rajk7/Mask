@@ -29,34 +29,38 @@ public class ScreenPixelComparer : MonoBehaviour
 
     public float CompareScreens()
     {
-        if (screenA == null || screenB == null)
-        {
-            Debug.LogError("Capture both first!");
+        if (screenB.width != screenA.width || screenB.height != screenA.height)
             return 0f;
-        }
 
-        if (screenA.width != screenB.width || screenA.height != screenB.height)
-        {
-            Debug.LogError("Resolution mismatch!");
-            return 0f;
-        }
+        Color[] p1 = screenB.GetPixels();
+        Color[] p2 = screenA.GetPixels();
 
-        byte[] a = screenA.GetRawTextureData();
-        byte[] b = screenB.GetRawTextureData();
+        int matchCount = 0;
+        int total = p1.Length;
 
-        int total = a.Length;
-        int match = 0;
+        const float hueTolerance = 0.05f;        // 0–1 range (≈ 7°)
+        const float satTolerance = 0.05f;
+        const float valTolerance = 0.05f;
 
         for (int i = 0; i < total; i++)
         {
-            if (a[i] == b[i])
-                match++;
+            Color.RGBToHSV(p1[i], out float h1, out float s1, out float v1);
+            Color.RGBToHSV(p2[i], out float h2, out float s2, out float v2);
+
+            bool hueMatch = Mathf.Abs(h1 - h2) < hueTolerance ||
+                            Mathf.Abs(h1 - h2) > 1f - hueTolerance; // wrap-around
+
+            bool satMatch = Mathf.Abs(s1 - s2) < satTolerance;
+            bool valMatch = Mathf.Abs(v1 - v2) < valTolerance;
+
+            if (hueMatch && satMatch && valMatch)
+                matchCount++;
         }
 
-        float similarity = (float)match / total;
-        Debug.Log($"RAW Similarity = {similarity * 100f}%");
+        float similarity = (float)matchCount / total * 100f;
+        Debug.Log(similarity.ToString("F2") + "% similarity (HSV)");
+        return similarity;
 
-        return (similarity * 100f);
     }
 
 }
